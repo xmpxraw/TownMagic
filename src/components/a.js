@@ -2,7 +2,7 @@ class Point {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.init()
+        console.log(this.toString())
     }
 
     toString() {

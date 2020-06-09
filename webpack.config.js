@@ -40,11 +40,17 @@ module.exports = (env, argv) => {
                         'less-loader',
                     ]
                 },
+
                 {
-                    test: /\.(png|svg|jpg|gif)$/,
-                    use: [
-                        'file-loader'
-                    ]
+                    test: /\.(png|jpg|gif|jpeg)$/,
+                    use: [{
+                        loader: 'url-loader',
+                        options: {
+                            esModule: false, // 这里设置为false
+                            name: 'images/[name]-[hash:5].[ext]',
+                            limit: 10240
+                        }
+                    }]
                 }
             ]
         },

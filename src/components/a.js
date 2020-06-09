@@ -10,7 +10,7 @@ class Point {
     }
 
     init() {
-        console.log(this.y)
+        console.log(this.x)
     }
 }
 new Point(1,3)

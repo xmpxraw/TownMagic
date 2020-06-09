@@ -1,5 +1,6 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './components/a';
-// ReactDOM.render(<App/> , document.getElementById('root'));
+// css
+import './styles/index.less';
+
+
+// js
 import './components/a.js'

@@ -1,11 +1,16 @@
-import '../styles/index.less';
-
-const a = (function () {
-    return {
-        a: 1111,
-        init: function () {
-            console.log(this.a)
-        }
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.init()
     }
-})()
-a.init()
+
+    toString() {
+        return '(' + this.x + ', ' + this.y + ')';
+    }
+
+    init() {
+        console.log(this.y)
+    }
+}
+new Point(1,3)

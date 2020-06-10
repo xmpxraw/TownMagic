@@ -45,25 +45,24 @@ html,body {
     width: 15px;
     height: 100px;
     position: fixed;
-    right: 10px;
-    top: 50%;
+    left: 10px;
+    top: 20%;
     margin-top: -50px;
+    span {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: yellow;
+      font-size: 12px;
+      text-align: center;
+      line-height: 15px;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .pointActive {
+      background-color: red;
+    }
   }
 
-  .circles span {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: yellow;
-    font-size: 12px;
-    text-align: center;
-    line-height: 15px;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
-
-  .circles span.cur {
-    background-color: red;
-  }
 }

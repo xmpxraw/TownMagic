@@ -51,7 +51,6 @@ class Point {
                 idx = 4;
             }
             //设置小圆点
-
             //将所有的小圆点清空
             for (var i = 0; i < circles.length; i++) {
                 circles[i].className = '';
@@ -72,13 +71,14 @@ class Point {
         //给ie，chrome添加事件
         document.onmousewheel = mousewheelhandler;
         try {
-
             //给火狐添加事件
             document.addEventListener("DOMMouseScroll", mousewheehandler, false);
-
         } catch (err) {
-
         }
+    }
+
+    handleTogglePage () {
+        
     }
 }
 new Point(2, 4)

@@ -89,8 +89,8 @@ class Index {
     }
 
     handleClickpageNationItem (i) {
-        console.log(i)
-        console.log(this.idx)
+        this.idx = i
+        this.handleTogglePage(i)
     }
 }
 new Index()

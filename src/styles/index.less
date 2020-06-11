@@ -1,10 +1,14 @@
 @import './reset.less';
+@import './block_animate.less';
+@import './variable.less';
 
-html,body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 .page-index_design {
   .container {
     width: 100%;
@@ -18,15 +22,12 @@ html,body {
   .page {
     width: 100%;
     height: 100%;
-    background: yellowgreen;
   }
 
-  .page0 {
-    background-color: yellowgreen;
-  }
+  .page0 {}
 
   .page1 {
-    background-color: orange;
+    background-color: @font-gold_color;
   }
 
   .page2 {
@@ -42,26 +43,98 @@ html,body {
   }
 
   .circles {
-    width: 15px;
-    height: 100px;
+    width: 138px;
+    height: 294px;
+    background: rgba(255,255,255, .6);
     position: fixed;
-    left: 10px;
+    left: 0;
     top: 20%;
-    margin-top: -50px;
-    span {
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: yellow;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 30px 10px;
+    border: 1px solid @gold-border_color;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px @gold-border_color;
+    display: flex;
+    flex-direction: column;
+
+    &_item {
       font-size: 12px;
-      text-align: center;
-      line-height: 15px;
-      margin-bottom: 5px;
+      box-sizing: border-box;
       cursor: pointer;
+      color: @font-gold_color;
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .name_line {
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 1px;
+          height: 3px;
+          background: @gold-border_color;
+          position: absolute;
+          bottom: -8px;
+          left: 1px;
+        }
+
+        &::after {
+          content: '';
+          width: 120%;
+          height: 1px;
+          background: @gold-border_color;
+          position: absolute;
+          bottom: -7px;
+          left: 0;
+        }
+      }
+
+      .icon_flower {
+        display: none;
+        transition: all 2s;
+      }
+
+      .icon_flower_02 {
+        display: inline-block;
+        margin-left: 25px;
+        margin-top: 18px;
+        transition: all 2s;
+
+        img {
+          animation: flowerSpinClockwise .8s linear infinite;
+          transform-origin: center center;
+        }
+      }
     }
+
     .pointActive {
-      background-color: red;
+      font-weight: bold;
+      .icon_flower_02 {
+        display: none;
+      }
+
+      .icon_flower {
+        display: inline-block;
+        margin-left: 25px;
+        position: relative;
+
+        &_item {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+
+          .animate__flowerSpinClockwise {
+            animation-duration: 1s;
+          }
+
+          .animate__Counterclockwise {
+            animation-duration: 3s;
+          }
+        }
+      }
     }
   }
 

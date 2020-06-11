@@ -2,11 +2,11 @@ import {
     $
 } from './common';
 
-class Point {
+class Index {
     constructor() {
-        this.init()
         this.lock = true
         this.idx = 0;
+        this.init()
     }
 
     init() {
@@ -28,10 +28,13 @@ class Point {
             console.log(err)
         }
         // pagenation click
-        // $('#circles').onclick = function () {
-        //     console.log('click')
-        // }
-        console.log($('#circles'))
+        const liAll = document.querySelectorAll('#circles .circles_item')
+        console.log(liAll)
+        for (let i = 0; i < liAll.length; i++) {
+            liAll[i].onclick = () => {
+                this.handleClickpageNationItem(i)
+            }
+        }
     }
 
     mousewheelhandler(event) {
@@ -71,10 +74,10 @@ class Point {
         //设置小圆点
         //将所有的小圆点清空
         for (let i = 0; i < circles.length; i++) {
-            circles[i].className = '';
+            circles[i].className = 'circles_item';
         }
         //将制定的小圆点的名字，让其背景颜色
-        circles[pageIndex].className = "pointActive";
+        circles[pageIndex].className = "circles_item pointActive";
         container.style.top = -pageIndex * 100 + "%";
         //上锁
         this.lock = false;
@@ -84,5 +87,10 @@ class Point {
             this.lock = true;
         }, 1000)
     }
+
+    handleClickpageNationItem (i) {
+        console.log(i)
+        console.log(this.idx)
+    }
 }
-new Point()
+new Index()

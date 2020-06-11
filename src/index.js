@@ -3,4 +3,4 @@ import './styles/index.less';
 
 
 // js
-import './components/a.js'
+import './components/index.js'

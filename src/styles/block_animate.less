@@ -93,33 +93,78 @@
   animation: flowerSpinClockwise .8s linear infinite;
   transform-origin: center center;
 }
+
 .animate__Counterclockwise {
   animation: Counterclockwise 2s linear infinite;
   transform-origin: center center;
 }
+
 // 花瓣顺时针旋转
 @keyframes flowerSpinClockwise {
-  0%   {
-      -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      transform: rotate(0deg);
+  0% {
+    transform: rotate(0deg);
   }
+
   100% {
-      -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
+
 // 花瓣逆时针旋转
 @keyframes Counterclockwise {
   0% {
-      -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  100%   {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
+
+  100% {
     transform: rotate(0deg);
+  }
 }
+
+@keyframes GirlFloat {
+  from {
+    transform: translate(0, 0)
+  }
+
+  to {
+    transform: translate(0, 20px)
+  }
+}
+
+
+// 鹤在飞
+@keyframes animX {
+  0% {
+    left: -1800px;
+  }
+
+  100% {
+    left: 3000px;
+  }
+}
+
+@keyframes animY {
+  0% {
+    bottom: 150px;
+  }
+
+  100% {
+    bottom: 24px;
+  }
+}
+
+// 鹤缩放
+@keyframes scale {
+  0% {
+    transform: scale(0.3) rotateY(180deg);
+  }
+
+  50% {
+    transform: scale(1);
+    z-index: 19;
+  }
+
+  100% {
+    transform: scale(0.3) rotateY(180deg);
+  }
 }

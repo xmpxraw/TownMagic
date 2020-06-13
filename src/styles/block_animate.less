@@ -89,14 +89,18 @@
   }
 }
 
-.animate__flowerSpinClockwise {
-  animation: flowerSpinClockwise .8s linear infinite;
-  transform-origin: center center;
+.animate__flowerSpinClockwise, .nav-item {
+  &.xFlying {
+    animation: flowerSpinClockwise .8s linear infinite;
+    transform-origin: center center;
+  }
 }
 
 .animate__Counterclockwise {
-  animation: Counterclockwise 2s linear infinite;
-  transform-origin: center center;
+  &.xFlying {
+    animation: Counterclockwise 2s linear infinite;
+    transform-origin: center center;
+  }
 }
 
 // 花瓣顺时针旋转
@@ -120,7 +124,7 @@
     transform: rotate(0deg);
   }
 }
-
+// 第一页的妹子漂浮
 @keyframes GirlFloat {
   from {
     transform: translate(0, 0)
@@ -130,44 +134,223 @@
     transform: translate(0, 20px)
   }
 }
-
-
-// 鹤在飞
-@keyframes animX {
+// 鹤的飞翔动画
+@keyframes heFlyIng {
   0% {
-    left: -1800px;
-  }
-
-  100% {
-    left: 3000px;
-  }
-}
-
-@keyframes animY {
-  0% {
-    bottom: 150px;
-  }
-
-  100% {
-    bottom: 24px;
-  }
-}
-
-// 鹤缩放
-@keyframes scale {
-  0% {
-    transform: scale(0.3) rotateY(180deg);
-    z-index: 1;
-  }
-
-  50% {
-    transform: scale(1);
+    left: 76px;
     z-index: 19;
   }
 
-  100% {
+  15% {
+    left: 76px;
+    transform: scale(.98);
+  }
 
-    z-index: 1;
+  20% {
+    left: -800px;
+  }
+
+  35% {
+    left: -1000px;
+    display: none;
     transform: scale(0.3) rotateY(180deg);
+  }
+
+  75% {
+    z-index: 1;
+    display: inline-block;
+    left: calc(100vw + 500px);
+  }
+
+  100% {
+    z-index: 19;
+    left: 76px;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+// 文字流光溢彩
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg)
+  }
+
+  to {
+    filter: hue-rotate(360deg)
+  }
+}
+
+// 按钮背景
+@keyframes btn_bg_move {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -380px;
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes jello {
+  from,
+  11.1%,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  22.2% {
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+
+  33.3% {
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+
+  44.4% {
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+
+  55.5% {
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+
+  66.6% {
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+
+  77.7% {
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+
+  88.8% {
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+
+@keyframes girlRoating01 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes girlRoating02 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

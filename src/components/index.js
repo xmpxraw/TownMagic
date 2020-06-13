@@ -1,5 +1,7 @@
 import {
-    $
+    $,
+    getUrlParams,
+    addClass
 } from './common';
 
 class Index {
@@ -29,14 +31,34 @@ class Index {
         }
         // pagenation click
         const liAll = document.querySelectorAll('#circles .circles_item')
-        console.log(liAll)
         for (let i = 0; i < liAll.length; i++) {
             liAll[i].onclick = () => {
                 this.handleClickpageNationItem(i)
             }
         }
+        // nav click
+        const navAll = document.querySelectorAll('nav .nav-item')
+        for (let i = 0; i < navAll.length; i++) {
+            navAll[i].onclick = () => {
+                this.handleClickpageNationItem(i)
+            }
+        }
+        this.isAnimated()
+        setTimeout(() => {
+            let e = document.createEvent("MouseEvents");
+            e.initEvent("click", true, true);
+            //这里的click可以换成你想触发的行为
+            document.getElementById("aaaa").dispatchEvent(e);
+        }, 2000);
     }
-
+    isAnimated() {
+        const { move } = getUrlParams()
+        if (move != 'true') return;
+        const flyItem = document.querySelectorAll('.xFly');
+        for (let i = 0; i < flyItem.length; i++) {
+            addClass(flyItem[i], 'xFlying')
+        }
+    }
     mousewheelhandler(event) {
         //函数节流防止化的太快, 事件处理函数
         event = event || window.event;
@@ -71,13 +93,20 @@ class Index {
         const container = document.getElementById("container");
         //获取所有的焦点
         const circles = document.getElementById("circles").children;
+        const nav = document.getElementById("nav").children;
         //设置小圆点
         //将所有的小圆点清空
         for (let i = 0; i < circles.length; i++) {
             circles[i].className = 'circles_item';
         }
+        for (let i = 0; i < nav.length; i++) {
+            nav[i].className = 'nav-item xFly';
+        }
         //将制定的小圆点的名字，让其背景颜色
         circles[pageIndex].className = "circles_item pointActive";
+        const { move } = getUrlParams()
+        const addClassName = move == 'true' ? 'nav-item xFly xFlying' : 'nav-item xFly'
+        nav[pageIndex].className = addClassName;
         container.style.top = -pageIndex * 100 + "%";
         //上锁
         this.lock = false;
@@ -88,7 +117,7 @@ class Index {
         }, 1000)
     }
 
-    handleClickpageNationItem (i) {
+    handleClickpageNationItem(i) {
         this.idx = i
         this.handleTogglePage(i)
     }

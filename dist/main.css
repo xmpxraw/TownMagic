@@ -769,7 +769,7 @@ body {
   bottom: 320px;
 }
 .page-index_design .page1_right .page1_girl_bg1.xFlying {
-  animation: girlRoating01 30s linear infinite;
+  animation: girlRoating01 120s linear infinite;
   transform-origin: center center;
 }
 .page-index_design .page1_right .page1_girl_bg2 {
@@ -777,7 +777,7 @@ body {
   bottom: -100px;
 }
 .page-index_design .page1_right .page1_girl_bg2.xFlying {
-  animation: girlRoating02 3s linear infinite;
+  animation: girlRoating02 2s linear infinite;
   transform-origin: center center;
 }
 .page-index_design .page2 {

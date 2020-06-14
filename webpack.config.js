@@ -11,6 +11,10 @@ module.exports = (env, argv) => {
             "babel-polyfill",
             path.join(__dirname, './src/index.js')
         ],
+        output: {
+            filename: 'bundle.[hash].js',
+            path: path.resolve(__dirname, 'dist')
+        },
         devServer: {
             port: 3000, //端口号
         },
@@ -61,8 +65,8 @@ module.exports = (env, argv) => {
                 filename: "./index.html"
             }),
             new MiniCssExtractPlugin({
-                filename: "[name].css",
-                chunkFilename: "[id].css"
+                filename: "[name]-[hash:5].css",
+                chunkFilename: "[id]-[hash:5].css"
             })
         ]
     }

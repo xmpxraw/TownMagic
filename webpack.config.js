@@ -54,7 +54,13 @@ module.exports = (env, argv) => {
                             name: 'images/[name]-[hash:5].[ext]',
                             limit: 10240
                         }
-                    }]
+                    }, 
+                 {
+                     loader: 'image-webpack-loader', // 压缩图片
+                     options: {
+                         bypassOnDebug: true,
+                     }
+                 }]
                 }
             ]
         },

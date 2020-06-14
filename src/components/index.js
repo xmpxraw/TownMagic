@@ -44,12 +44,12 @@ class Index {
             }
         }
         this.isAnimated()
-        setTimeout(() => {
-            let e = document.createEvent("MouseEvents");
-            e.initEvent("click", true, true);
-            //这里的click可以换成你想触发的行为
-            document.getElementById("aaaa").dispatchEvent(e);
-        }, 2000);
+        // setTimeout(() => {
+        //     let e = document.createEvent("MouseEvents");
+        //     e.initEvent("click", true, true);
+        //     //这里的click可以换成你想触发的行为
+        //     document.getElementById("aaaa").dispatchEvent(e);
+        // }, 2000);
     }
     isAnimated() {
         const { move } = getUrlParams()
@@ -83,8 +83,8 @@ class Index {
         if (this.idx < 0) {
             this.idx = 0;
         }
-        if (this.idx > 4) {
-            this.idx = 4;
+        if (this.idx > 1) {
+            this.idx = 1;
         }
         this.handleTogglePage(this.idx)
     }

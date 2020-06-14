@@ -138,23 +138,45 @@ body {
         width: 438px;
         height: 122px;
         line-height: 122px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
 
         .hue {
           &.xFlying {
             font-weight: bold;
+            width: 87%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to right,
-                red,
-                orange,
-                yellow,
-                green,
-                cyan,
-                blue,
-                purple);
+            background-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
             animation: hue 1.5s linear infinite;
+            height: 54px;
+            position: relative;
+            line-height: 56px;
+            margin-top: 34px;
+            overflow: hidden;
+            display: inline-block;
+
+            .wave {
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              margin-top: -200px;
+              left: 50%;
+              margin-left: -200px;
+              background: #fff;
+              width: 400px;
+              height: 400px;
+              transform: scale(0.01);
+              opacity: 0;
+            }
+
+            &:hover .wave {
+              animation: wave ease-out .8s;
+            }
           }
         }
+
       }
 
       .word4 {
@@ -221,12 +243,14 @@ body {
           &:nth-child(1) {
             &.xFlying:hover {
               animation: rubberBand 1s;
+              animation-fill-mode: forwards;
             }
           }
 
           &:nth-child(2) {
             &.xFlying:hover {
               animation: bounce 1s;
+              animation-fill-mode: forwards;
             }
 
             background: url('../assets/16.png')no-repeat;
@@ -237,6 +261,7 @@ body {
             &.xFlying:hover {
               animation: jello 1s;
               transform-origin: center;
+              animation-fill-mode: forwards;
             }
 
             background: url('../assets/17.png')no-repeat;
@@ -247,6 +272,7 @@ body {
             &.xFlying:hover {
               animation: tada 1s;
               transform-origin: center;
+              animation-fill-mode: forwards;
             }
 
             background: url('../assets/18.png')no-repeat;
@@ -257,6 +283,7 @@ body {
             &.xFlying:hover {
               animation: swing 1s;
               transform-origin: top center;
+              animation-fill-mode: forwards;
             }
 
             background: url('../assets/19.png')no-repeat;
@@ -392,6 +419,9 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 99;
+    &.xFlying {
+      animation: light 1.3s ease-in-out infinite alternate;
+    }
 
     &_item {
       font-size: 12px;
